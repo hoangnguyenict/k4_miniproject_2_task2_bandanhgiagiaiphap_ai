@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Task 2 – Bản thiết kế giải pháp AI | AI for Healthy Schools – K4</title>
+<style>
+:root{--blue:#0875c3;--deep:#075894;--navy:#163451;--line:#d9e5f0;--soft:#f2f7fc;--red:#bd0000;--green:#009f50;--purple:#8061a3;--teal:#4e9cb4;--out:#42bd4d}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#edf3fa;color:#1d324b;font:15px/1.55 "Segoe UI",Arial,sans-serif}button,input,textarea{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.58}button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #a7d6ff;outline-offset:2px}
+.shell{max-width:1130px;margin:25px auto 55px;background:#fff;border-radius:18px;box-shadow:0 14px 48px #1b50821b;overflow:hidden}.hero{background:linear-gradient(115deg,#0068b5,#0990d9);color:#fff;padding:25px 32px 21px}.hero small{font-size:12px;letter-spacing:.07em;text-transform:uppercase;font-weight:700;opacity:.9}.hero h1{font-size:clamp(22px,3vw,31px);margin:6px 0 0;line-height:1.25}.hero .sub{margin:5px 0 0;font-size:15px;opacity:.96}.credit{font-size:12px;margin-top:6px;color:#e0f2ff}.body{padding:23px 30px 32px}.identity{display:grid;grid-template-columns:2fr .75fr 1fr;gap:13px}.field>label,.field>span{font-weight:700;display:block;margin-bottom:6px}.field input,.field textarea{width:100%;border:1.5px solid #c7d7e7;border-radius:10px;background:white;padding:10px 12px;color:#1c3652;transition:border-color .15s}.field input:focus,.field textarea:focus{border-color:#0875c3}.field textarea{resize:vertical;min-height:66px;overflow:hidden;line-height:1.5}.tabs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:23px 0 20px}.tab{background:#f2f7fc;color:#36546e;border:1.5px solid #d7e5f1;padding:14px 10px;border-radius:13px;text-align:center;font-weight:700;display:flex;align-items:center;justify-content:center;gap:9px}.tab.active{background:#e3f2ff;border:2px solid #0875c3;color:#006dbb}.tab .num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#d6e6f5}.tab.active .num{background:#0875c3;color:white}.panel{display:none}.panel.active{display:block}.section{background:#fff;border:1px solid var(--line);border-radius:15px;padding:19px 20px;margin-bottom:18px;box-shadow:0 3px 10px #1c4a7010}.section h2{font-size:19px;color:var(--blue);margin:0 0 13px;display:flex;align-items:center;gap:9px}.section h2 .circle{display:inline-flex;align-items:center;justify-content:center;background:var(--blue);color:white;border-radius:50%;font-size:14px;width:29px;height:29px;flex-shrink:0}.guide{color:#59718b;font-size:13px;margin:0 0 12px}.scenario{padding:15px 18px;background:#f6faff;border-left:5px solid var(--blue);border-radius:10px;line-height:1.75;font-size:16px}.scenario h3{color:var(--blue);font-size:18px;margin:0 0 5px}.scenario p{margin:0}.red{color:var(--red);font-weight:750}.green{color:var(--green);font-weight:750}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:15px}.hint{font-weight:400;color:#68809a;font-size:12px;display:block;margin:3px 0 7px}.formula{background:#eaf4ff;border:1px dashed #82bce8;border-radius:10px;padding:11px 13px;margin-bottom:12px;color:#075894;font-size:14px}.notice{background:#fff8e7;border:1px solid #f3ddac;border-radius:10px;padding:10px 13px;font-size:13px;color:#725318;margin-top:12px}.ipo{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.ipo-card{border:2px solid var(--line);border-radius:13px;padding:14px;background:#fff}.ipo-card.purple{border-color:#b5a3d3;background:#f8f4fc}.ipo-card.teal{border-color:#a3d4df;background:#f3fbfd}.ipo-card.green{border-color:#9cdea2;background:#f4fcf4}.ipo-card h3{font-size:19px;margin:0 0 3px}.ipo-card.purple h3{color:#7653a2}.ipo-card.teal h3{color:#25899f}.ipo-card.green h3{color:#2ca33c}.ipo-card .field{margin-top:10px}.ipo-card textarea{min-height:110px}.diagram{display:flex;gap:9px;align-items:stretch;margin-top:13px}.diagram .block{min-width:0;flex:1;border-radius:11px;color:white;padding:14px 10px;text-align:center}.diagram .block strong{font-size:17px;display:block}.diagram .block p{font-size:13px;line-height:1.45;margin:8px 0 0;overflow-wrap:anywhere;white-space:pre-wrap}.diagram .block.purple{background:var(--purple)}.diagram .block.teal{background:var(--teal)}.diagram .block.green{background:var(--out)}.arrow{align-self:center;font-size:28px;font-weight:900;color:#7d91a6}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.actions{display:flex;align-items:center;gap:11px;flex-wrap:wrap;justify-content:space-between;margin-top:22px}.btn{padding:11px 17px;border-radius:10px;font-weight:750;border:1px solid transparent;display:inline-flex;gap:8px;align-items:center;justify-content:center}.btn.primary{background:var(--blue);color:white}.btn.primary:hover{background:#0060a7}.btn.secondary{background:#fff;color:var(--blue);border-color:var(--blue)}.btn.secondary:hover{background:#eff8ff}.btn.muted{background:#f3f6fa;color:#49667f;border-color:#d5e1eb}.btn.success{background:#09854d;color:white}.prompt{display:block;width:100%;min-height:234px!important;background:#fbfdff!important;line-height:1.7!important;padding:15px 17px;border:1.5px solid #b5cde2;border-radius:12px;color:#1c3652;resize:vertical;overflow:hidden;white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;box-sizing:border-box}.promptbar{display:flex;align-items:center;gap:10px;justify-content:space-between;flex-wrap:wrap;margin-bottom:10px}.promptbar small{color:#5a718a}.upload{border:2px dashed #91b9d8;border-radius:14px;background:#f7fbff;padding:26px;min-height:230px;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;transition:.15s}.upload.over{border-color:#0875c3;background:#e4f2ff}.upload .ico{font-size:38px;line-height:1}.upload h3{margin:8px 0 3px;color:#1f537d}.upload p{margin:5px 0 15px;color:#657f97}.upload input{display:none}.preview-wrap{display:none;margin-top:14px;border:1px solid var(--line);padding:14px;border-radius:12px;background:#f9fbfe}.preview-wrap img{display:block;max-width:100%;max-height:560px;object-fit:contain;margin:0 auto;border-radius:8px}.preview-name{font-size:12px;color:#60738b;overflow-wrap:anywhere;margin-top:9px;text-align:center}.file-actions{margin-top:13px;justify-content:center}.footer{color:#637d94;text-align:center;font-size:12px;margin-top:26px}.status{display:none;background:#ecfff3;color:#08713f;border:1px solid #b7e5c9;padding:10px 13px;border-radius:10px;margin-top:14px}.status.error{background:#fff3f2;color:#a82d2a;border-color:#f2c4c1}.status.show{display:block}.tip-list{padding-left:21px;margin:9px 0 0;font-size:13px;color:#47627b}.tip-list li{margin:4px 0}
+/* Export-only layout */
+#pdfMount{position:fixed;left:0;top:0;width:794px;z-index:-10;pointer-events:none;opacity:1;visibility:visible} .pdf-root{width:794px;background:#fff;color:#203650;font-family:Arial,sans-serif;font-size:13px;line-height:1.52;padding:0}.pdf-hero{background:#0875c3;color:white;padding:24px 26px}.pdf-hero h1{margin:0;font-size:23px}.pdf-hero p{margin:4px 0 0}.pdf-page{padding:20px 26px}.pdf-meta{display:grid;grid-template-columns:2fr .8fr 1fr;gap:10px;padding:12px 0;border-bottom:1px solid #b4d0e3}.pdf-item{padding:10px 12px;border:1px solid #cbdbe8;border-radius:8px;background:#f8fbff;min-height:53px;white-space:pre-wrap;overflow-wrap:anywhere}.pdf-item strong{color:#086eb6;display:block;margin-bottom:4px}.pdf-section{margin:18px 0 0;break-inside:avoid;page-break-inside:avoid}.pdf-section h2{font-size:18px;color:#0875c3;margin:0 0 8px;border-bottom:2px solid #dceefb;padding-bottom:5px}.pdf-grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.pdf-ipo{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}.pdf-ipo .pdf-item{min-height:95px}.pdf-ipo .pdf-item:nth-child(1){border-color:#b5a3d3;background:#f8f4fc}.pdf-ipo .pdf-item:nth-child(2){border-color:#a3d4df;background:#f3fbfd}.pdf-ipo .pdf-item:nth-child(3){border-color:#9cdea2;background:#f4fcf4}.pdf-image{max-width:100%;max-height:870px;object-fit:contain;display:block;margin:10px auto;border:1px solid #e0e8f0}.pdf-scenario{background:#f5faff;border-left:4px solid var(--blue);padding:11px 13px;border-radius:7px}.pdf-break{break-before:page;page-break-before:always}.pdf-foot{margin:20px 0 0;color:#647e96;text-align:center;font-size:11px}.pdf-root .pdf-prompt{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px}
+@media(max-width:750px){.shell{margin:0;border-radius:0}.body{padding:16px}.hero{padding:22px 18px}.identity,.grid2,.ipo{grid-template-columns:1fr}.tabs{gap:7px}.tab{font-size:12px;padding:12px 4px}.section{padding:15px}.diagram{flex-direction:column}.arrow{transform:rotate(90deg);align-self:center;line-height:25px}.actions{justify-content:stretch}.actions .btn{flex:1}.scenario{font-size:14px}}
+@media print{body{background:#fff}.shell{box-shadow:none}.btn,.tabs,.actions,.footer,.notice{display:none!important}.panel{display:block!important}.section{break-inside:avoid}}
+</style>
+</head><body>
+<div class="shell"><header class="hero"><small>Mini Project 2 · AI for Healthy Schools · Khối 4</small><h1>TASK 2 – BẢN THIẾT KẾ GIẢI PHÁP AI</h1><p class="sub">Từ phân tích vấn đề đến mô hình IPO và Infographic của con</p><div class="credit">Thiết kế: Hoangntm2 - VSC Tih Times City</div></header>
+<main class="body">
+<div class="identity"><div class="field"><label for="student">Họ và tên</label><input id="student" placeholder="Nhập họ và tên" autocomplete="name"></div><div class="field"><label for="className">Lớp</label><input id="className" placeholder="Ví dụ: 4A1"></div><div class="field"><label for="date">Ngày làm bài</label><input id="date" type="date"></div></div>
+<div class="tabs" role="tablist" aria-label="Các phần của Task 2"><button class="tab active" id="tabButton1" role="tab" aria-selected="true" aria-controls="tab1"><span class="num">1</span>Thiết kế giải pháp AI</button><button class="tab" id="tabButton2" role="tab" aria-selected="false" aria-controls="tab2"><span class="num">2</span>Sáng tạo Infographic</button></div>
+<div id="tab1" class="panel active" role="tabpanel" aria-labelledby="tabButton1">
+<section class="section"><h2><span class="circle">1</span> Tình huống dự án</h2><div class="scenario"><h3>Giải pháp AI: Trợ lý AI nhắc nhở tư thế ngồi</h3><p>Trợ lý AI sử dụng camera để <span class="red">phát hiện khi học sinh ngồi sai tư thế, quá gần màn hình hoặc ngồi quá 30 phút</span>. AI hiển thị <span class="red">hình ảnh hướng dẫn</span> và <span class="red">thông báo nhắc nhở</span> học sinh điều chỉnh tư thế, nghỉ ngơi. AI có giao diện <span class="green">đơn giản, dễ sử dụng</span> nhưng chỉ hoạt động <span class="green">trên máy tính có camera</span>. Đôi khi, AI đưa ra lời <span class="green">nhận xét thiếu lịch sự</span> như: <span class="red">“Con ngồi sai thế mà cũng không biết à?”</span>, khiến học sinh cảm thấy buồn và thiếu tự tin.</p></div></section>
+<section class="section"><h2><span class="circle">2</span> Thông tin dự án</h2><p class="guide">Đọc tình huống và viết câu trả lời bằng lời của con. Hãy nêu những thông tin thật sự quan trọng.</p><div class="grid2">
+<div class="field"><label for="problem">Vấn đề</label><span class="hint">Điều gì đang gây khó khăn cho học sinh?</span><textarea id="problem" placeholder="Viết vấn đề cần giải quyết..."></textarea></div>
+<div class="field"><label for="users">Người dùng</label><span class="hint">Ai sẽ sử dụng giải pháp AI?</span><textarea id="users" placeholder="Viết người dùng của giải pháp..."></textarea></div>
+<div class="field"><label for="needs">Nhu cầu</label><span class="hint">Người dùng muốn được hỗ trợ điều gì?</span><textarea id="needs" placeholder="Viết nhu cầu của người dùng..."></textarea></div>
+<div class="field"><label for="goal">Mục tiêu dự án</label><span class="hint">Sau khi sử dụng giải pháp, điều gì sẽ tốt hơn?</span><textarea id="goal" placeholder="Viết mục tiêu dự án..."></textarea></div>
+</div></section>
+<section class="section"><h2><span class="circle">3</span> User Story</h2><div class="formula"><strong>Công thức:</strong> Là một <strong>[vai trò]</strong>, tôi muốn <strong>[nhu cầu]</strong>, để <strong>[mục đích]</strong>.</div><div class="row" style="margin:0 0 12px"><button type="button" class="btn secondary" id="combineStory">✦ Ghép thử User Story</button><span class="guide" style="margin:0">Lấy thông tin từ Người dùng, Nhu cầu và Mục tiêu dự án ở phần 2; sau đó con có thể chỉnh sửa.</span></div><div class="field"><label for="story">User Story hoàn chỉnh</label><span class="hint">Hãy viết một câu tóm tắt nhu cầu từ góc nhìn của người dùng.</span><textarea id="story" placeholder="Là một..., tôi muốn..., để..."></textarea></div></section>
+<section class="section"><h2><span class="circle">4</span> Giải pháp AI</h2><div class="field"><label for="solution">AI sẽ giúp người dùng giải quyết vấn đề như thế nào?</label><span class="hint">Mô tả cách giải pháp hoạt động bằng lời của con.</span><textarea id="solution" placeholder="Giải pháp AI của con sẽ..."></textarea></div><div class="field" style="margin-top:13px"><label for="polite">AI nên nhắc nhở học sinh như thế nào để lịch sự và tích cực?</label><span class="hint">Viết một lời nhắc thân thiện thay cho câu nói chưa phù hợp trong tình huống.</span><textarea id="polite" placeholder="Viết lời nhắc tích cực của con..."></textarea></div></section>
+<section class="section"><h2><span class="circle">5</span> Thiết kế mô hình IPO</h2><p class="guide">Phân tích giải pháp thành ba bước: AI <strong>nhận dữ liệu gì</strong>, <strong>xử lý ra sao</strong> và <strong>đưa ra kết quả gì</strong>?</p><div class="ipo">
+<div class="ipo-card purple"><h3>Input</h3><span class="hint">Dữ liệu ban đầu: AI nhận thông tin gì?</span><div class="field"><textarea id="ipoInput" aria-label="Input" placeholder="Nhập dữ liệu đầu vào..."></textarea></div></div>
+<div class="ipo-card teal"><h3>Process</h3><span class="hint">Xử lý thông tin: AI sẽ làm gì?</span><div class="field"><textarea id="ipoProcess" aria-label="Process" placeholder="Nhập cách AI xử lý..."></textarea></div></div>
+<div class="ipo-card green"><h3>Output</h3><span class="hint">Kết quả đưa ra: AI sẽ hiển thị hoặc thông báo gì?</span><div class="field"><textarea id="ipoOutput" aria-label="Output" placeholder="Nhập kết quả AI đưa ra..."></textarea></div></div>
+</div><h3 style="font-size:15px;color:#2b577a;margin:20px 0 7px">Sơ đồ IPO từ bản thiết kế của con</h3><div class="diagram" aria-live="polite"><div class="block purple"><strong>Input</strong><p id="diagramInput">Chưa có nội dung</p></div><div class="arrow">➜</div><div class="block teal"><strong>Process</strong><p id="diagramProcess">Chưa có nội dung</p></div><div class="arrow">➜</div><div class="block green"><strong>Output</strong><p id="diagramOutput">Chưa có nội dung</p></div></div></section>
+<div class="actions"><span class="guide" style="margin:0">Nội dung con nhập sẽ được chuyển tự động sang câu lệnh tạo Infographic.</span><button class="btn primary" id="nextButton">Tiếp tục – Sáng tạo Infographic →</button></div>
+</div>
+<div id="tab2" class="panel" role="tabpanel" aria-labelledby="tabButton2">
+<section class="section"><h2><span class="circle">1</span> Câu lệnh tạo Infographic</h2><p class="guide">Prompt được tạo tự động từ tên giải pháp và mô hình IPO của con. Con có thể chỉnh sửa câu lệnh trước khi sao chép.</p><div class="field"><label for="solutionName">Tên con đặt cho giải pháp AI</label><span class="hint">Con có thể giữ tên gợi ý hoặc đặt tên mới cho sản phẩm.</span><input id="solutionName" value="Trợ lý AI nhắc nhở tư thế ngồi" placeholder="Nhập tên giải pháp AI"></div><div class="promptbar" style="margin-top:15px"><label for="promptText"><strong>Prompt của con</strong></label><small>Tự cập nhật khi dữ liệu thay đổi · Có thể chỉnh sửa</small></div><textarea class="prompt" id="promptText" aria-label="Prompt tạo Infographic" spellcheck="true" placeholder="Prompt sẽ được tự động tạo từ các thông tin IPO con đã nhập."></textarea>
+<div class="row" style="margin-top:12px"><button class="btn primary" id="copyButton">▣ Sao chép Prompt</button><button class="btn secondary" id="geminiButton">↗ Mở Gemini</button><button class="btn muted" id="resetPrompt">↻ Tạo lại Prompt từ IPO</button></div><div class="notice"><strong>Lưu ý trước khi sử dụng:</strong><ul class="tip-list"><li>Con cần điền thông tin Input, Process, Output trước khi sao chép Prompt.</li><li>Dán Prompt vào Gemini và yêu cầu tạo hình ảnh Infographic.</li><li>Kiểm tra chữ tiếng Việt, các bước IPO và hình ảnh; nếu chưa chính xác, hãy chỉnh lại Prompt và thử lại.</li><li>Không đưa hình ảnh thật hoặc thông tin riêng tư của học sinh vào công cụ AI.</li></ul></div></section>
+<section class="section"><h2><span class="circle">2</span> Infographic AI đã tạo</h2><p class="guide">Đưa hình ảnh sản phẩm của con vào trang bằng một trong ba cách sau.</p><div class="upload" id="dropzone" tabindex="0" role="button" aria-label="Kéo thả, dán hoặc chọn ảnh Infographic"><div class="ico">▧</div><h3>Tải ảnh, kéo thả hoặc dán ảnh tại đây</h3><p><strong>Tải ảnh</strong> từ máy tính · <strong>Kéo thả</strong> vào khung · <strong>Copy bằng Ctrl + C và dán bằng Ctrl + V</strong></p><button type="button" class="btn secondary" id="chooseImage">↑ Chọn ảnh từ máy tính</button><input type="file" id="imageInput" accept="image/*"></div><div class="preview-wrap" id="previewWrap"><img id="previewImage" alt="Infographic AI do học sinh tải lên"><div id="previewName" class="preview-name"></div><div class="row file-actions"><button class="btn secondary" id="replaceImage">↻ Tải lại hình khác</button><button class="btn muted" id="removeImage">✕ Xóa ảnh</button></div></div></section>
+<div class="actions"><button class="btn secondary" id="backButton">← Quay lại thiết kế IPO</button><button class="btn primary" id="downloadButton">↓ Tải bài làm (.pdf)</button></div>
+</div><div id="status" class="status" role="status" aria-live="polite"></div><footer class="footer">Mini Project 2 · AI for Healthy Schools · Khối 4 · Thiết kế: Hoangntm2 - VSC Tih Times City</footer>
+</main></div><div id="pdfMount" aria-hidden="true"></div>
+
+<script>
+(()=>{'use strict';
+const $=s=>document.getElementById(s);const ids=['student','className','date','problem','users','needs','goal','story','solution','polite','ipoInput','ipoProcess','ipoOutput','solutionName'];let uploadedData='',uploadedName='',promptEdited=false,promptBefore='';
+const get=id=>($(id).value||'').trim();const escapeHTML=str=>String(str??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function feedback(msg,error=false){const el=$('status');el.textContent=msg;el.className='status show'+(error?' error':'');el.scrollIntoView({block:'nearest',behavior:'smooth'});clearTimeout(feedback.timer);feedback.timer=setTimeout(()=>el.classList.remove('show'),7000)}
+function autoHeight(el){if(el.tagName!=='TEXTAREA')return;el.style.height='auto';el.style.height=Math.max(el.id==='promptText'?234:66,el.scrollHeight+5)+'px'}
+function showTab(n){$('tab1').classList.toggle('active',n===1);$('tab2').classList.toggle('active',n===2);[1,2].forEach(i=>{const b=$('tabButton'+i);b.classList.toggle('active',i===n);b.setAttribute('aria-selected',String(i===n))});document.querySelector('.tabs').scrollIntoView({behavior:'smooth',block:'start'});if(n===2)autoHeight($('promptText'))}
+function combineStory(){
+ const fields=[['users','Người dùng'],['needs','Nhu cầu'],['goal','Mục tiêu dự án']];
+ const missing=fields.filter(([id])=>!get(id)).map(([,name])=>name);
+ if(missing.length){feedback('Để ghép User Story, con hãy nhập: '+missing.join(', ')+'.',true);return}
+ const trimPart=s=>s.replace(/[.。!?,;:]+\s*$/g,'').trim();
+ const who=trimPart(get('users')).replace(/^là\s+(?:một|1)\s+/i,'');
+ const need=trimPart(get('needs')).replace(/^(?:tôi\s+)?muốn\s+/i,'');
+ const why=trimPart(get('goal')).replace(/^để\s+/i,'');
+ $('story').value=`Là một ${who}, tôi muốn ${need}, để ${why}.`;
+ autoHeight($('story'));saveText();feedback('Đã ghép thử User Story. Con hãy đọc lại và chỉnh sửa câu cho tự nhiên, phù hợp với nhu cầu người dùng.');
+}
+function generatePrompt(){return `Hãy tạo một INFOGRAPHIC bằng tiếng Việt dành cho học sinh tiểu học, thể hiện mô hình hoạt động của một giải pháp AI.\n\nTên con đặt cho giải pháp: ${get('solutionName')||'[Tên giải pháp AI]'}\nInput (dữ liệu ban đầu): ${get('ipoInput')||'[Con chưa nhập Input]'}\nProcess (xử lý thông tin): ${get('ipoProcess')||'[Con chưa nhập Process]'}\nOutput (kết quả đưa ra): ${get('ipoOutput')||'[Con chưa nhập Output]'}\n\nYêu cầu thiết kế:\n- Trình bày 3 phần Input → Process → Output theo đúng thứ tự, có mũi tên kết nối rõ ràng.\n- Phong cách infographic giáo dục thống nhất, hiện đại, thân thiện với học sinh lớp 4; màu sắc hài hòa, hình minh họa dễ hiểu.\n- Tiêu đề nổi bật, nội dung ngắn gọn, dễ đọc, chữ tiếng Việt rõ ràng và đúng chính tả.\n- Giữ đúng ý nghĩa các thông tin đã cung cấp; không tự bịa thêm dữ liệu hoặc chức năng.\n- Không sử dụng hình ảnh người thật do AI tạo.\n- Xuất ra một hình ảnh infographic hoàn chỉnh.`}
+function syncPrompt(force=false){const next=generatePrompt();if(force||!promptEdited||$('promptText').value===promptBefore){$('promptText').value=next;promptEdited=false;promptBefore=next;autoHeight($('promptText'))}else{$('promptText').dataset.needsSync='true'}setCopyDefault()}
+function setCopyDefault(){$('copyButton').textContent='▣ Sao chép Prompt';$('copyButton').classList.remove('success');$('copyButton').classList.add('primary')}
+function syncDiagram(){for(const [src,dst] of [['ipoInput','diagramInput'],['ipoProcess','diagramProcess'],['ipoOutput','diagramOutput']])$(dst).textContent=get(src)||'Chưa có nội dung';syncPrompt();}
+function saveText(){try{const data={};ids.forEach(id=>data[id]=$(id).value);data.promptCustom=promptEdited?$('promptText').value:'';localStorage.setItem('k4healthy_task2_v1',JSON.stringify(data))}catch(e){}}
+function loadText(){try{const d=JSON.parse(localStorage.getItem('k4healthy_task2_v1')||'{}');ids.forEach(id=>{if(typeof d[id]==='string')$(id).value=d[id]});if(typeof d.promptCustom==='string'&&d.promptCustom.trim()){promptEdited=true;$('promptText').value=d.promptCustom}}catch(e){}}
+function missingIPO(){return ['ipoInput','ipoProcess','ipoOutput'].filter(id=>!get(id)).map(id=>({ipoInput:'Input',ipoProcess:'Process',ipoOutput:'Output'}[id]))}
+async function copyPrompt(){
+ const t=$('promptText').value;
+ if(!t.trim()){feedback('Con cần tạo Prompt trước khi sao chép.',true);return}
+ let success=false;
+ // Clipboard API is preferred on HTTPS; some school browsers prohibit it for local HTML files.
+ if(navigator.clipboard&&window.isSecureContext){
+  try{await navigator.clipboard.writeText(t);success=true}catch(e){console.warn('Clipboard API unavailable, trying selection copy.',e)}
+ }
+ if(!success){
+  const temp=document.createElement('textarea');temp.value=t;temp.setAttribute('readonly','');
+  temp.style.cssText='position:fixed;left:-9999px;top:0;opacity:0;width:1px;height:1px';
+  document.body.appendChild(temp);temp.focus();temp.select();temp.setSelectionRange(0,temp.value.length);
+  try{success=document.execCommand('copy')}catch(e){success=false}
+  temp.remove();
+ }
+ if(success){
+  $('copyButton').textContent='✓ Đã sao chép';$('copyButton').classList.add('success');$('copyButton').classList.remove('primary');
+  feedback('Đã sao chép toàn bộ Prompt. Con hãy mở Gemini và dán câu lệnh bằng Ctrl + V.');
+ }else{
+  $('promptText').focus();$('promptText').select();
+  feedback('Trình duyệt không cho phép sao chép tự động. Prompt đã được chọn toàn bộ, con hãy nhấn Ctrl + C.',true);
+ }
+}
+function fileToImage(file){if(!file||!file.type.startsWith('image/')){feedback('Con hãy chọn một tệp ảnh PNG, JPG, WEBP hoặc ảnh hợp lệ khác.',true);return}if(file.size>18*1024*1024){feedback('Ảnh quá lớn (trên 18 MB). Hãy chọn ảnh nhỏ hơn.',true);return}const reader=new FileReader();reader.onload=()=>{const img=new Image();img.onload=()=>{const max=2000,scale=Math.min(1,max/Math.max(img.width,img.height));const c=document.createElement('canvas');c.width=Math.round(img.width*scale);c.height=Math.round(img.height*scale);const ctx=c.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,c.width,c.height);ctx.drawImage(img,0,0,c.width,c.height);uploadedData=c.toDataURL('image/jpeg',.88);uploadedName=file.name||'Ảnh được dán';$('previewImage').src=uploadedData;$('previewName').textContent=uploadedName;$('previewWrap').style.display='block';$('dropzone').style.display='none';feedback('Đã thêm Infographic vào bài làm. Con có thể tải PDF hoặc thay ảnh khác.')};img.onerror=()=>feedback('Không đọc được ảnh này. Hãy chọn ảnh khác.',true);img.src=reader.result};reader.onerror=()=>feedback('Không thể đọc tệp ảnh.',true);reader.readAsDataURL(file)}
+function removeImage() {uploadedData='';uploadedName='';$('previewImage').removeAttribute('src');$('previewWrap').style.display='none';$('dropzone').style.display='flex';$('imageInput').value=''}
+const scenarioHTML=`<strong style="color:#0875c3">Giải pháp AI: Trợ lý AI nhắc nhở tư thế ngồi</strong><div>Trợ lý AI sử dụng camera để <b style="color:#bd0000">phát hiện khi học sinh ngồi sai tư thế, quá gần màn hình hoặc ngồi quá 30 phút</b>. AI hiển thị <b style="color:#bd0000">hình ảnh hướng dẫn và thông báo nhắc nhở</b> học sinh điều chỉnh tư thế, nghỉ ngơi. AI có giao diện <b style="color:#009f50">đơn giản, dễ sử dụng</b> nhưng chỉ hoạt động <b style="color:#009f50">trên máy tính có camera</b>. Đôi khi AI đưa ra <b style="color:#009f50">nhận xét thiếu lịch sự</b> như: <b style="color:#bd0000">“Con ngồi sai thế mà cũng không biết à?”</b>, khiến học sinh cảm thấy buồn và thiếu tự tin.</div>`;
+const box=(label,text)=>`<div class="pdf-item"><strong>${escapeHTML(label)}</strong>${escapeHTML(text)||'<span style="color:#8aa0b4">(Chưa nhập)</span>'}</div>`;
+function buildPDF(){const d=get('date');const root=document.createElement('div');root.className='pdf-root';root.innerHTML=`<div class="pdf-hero"><h1>TASK 2 – BẢN THIẾT KẾ GIẢI PHÁP AI</h1><p>Mini Project 2 – AI for Healthy Schools · Khối 4</p><p style="font-size:11px;color:#dff1ff">Thiết kế: Hoangntm2 - VSC Tih Times City</p></div><div class="pdf-page"><div class="pdf-meta">${box('Họ và tên',get('student'))}${box('Lớp',get('className'))}${box('Ngày làm bài',d?d.split('-').reverse().join('/'): '')}</div><section class="pdf-section"><h2>1. Tình huống dự án</h2><div class="pdf-scenario">${scenarioHTML}</div></section><section class="pdf-section"><h2>2. Thông tin dự án</h2><div class="pdf-grid2">${box('Vấn đề',get('problem'))}${box('Người dùng',get('users'))}${box('Nhu cầu',get('needs'))}${box('Mục tiêu dự án',get('goal'))}</div></section><section class="pdf-section"><h2>3. User Story</h2>${box('User Story hoàn chỉnh',get('story'))}</section><section class="pdf-section"><h2>4. Giải pháp AI</h2>${box('Cách AI giải quyết vấn đề',get('solution'))}<div style="height:8px"></div>${box('Lời nhắc lịch sự, tích cực',get('polite'))}</section><section class="pdf-section"><h2>5. Mô hình IPO</h2><div class="pdf-ipo">${box('Input',get('ipoInput'))}${box('Process',get('ipoProcess'))}${box('Output',get('ipoOutput'))}</div></section><section class="pdf-section"><h2>6. Câu lệnh tạo Infographic</h2>${box('Tên giải pháp AI',get('solutionName'))}<div style="height:8px"></div><div class="pdf-item pdf-prompt">${escapeHTML($('promptText').value)}</div></section><section class="pdf-section"><h2>7. Infographic AI đã tạo</h2>${uploadedData?`<img class="pdf-image" src="${uploadedData}" alt="Infographic đã tạo">`:'<div class="pdf-item">Học sinh chưa tải ảnh Infographic.</div>'}</section><div class="pdf-foot">Thiết kế: Hoangntm2 - VSC Tih Times City</div></div>`;return root}
+function cleanName(s){return(s||'HocSinh').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d').replace(/Đ/g,'D').replace(/[^a-zA-Z0-9_-]+/g,'_').slice(0,75)}
+// Xuất PDF ngay trên máy, không cần tải thư viện PDF qua Internet.
+// Mỗi trang được vẽ lên canvas ở độ phân giải cao, rồi đóng gói vào PDF A4.
+function makePDFPages(){
+ const W=794,H=1123,M=42,R=W-M,inner=W-2*M,scale=1.65;
+ const colors={blue:'#0875c3',deep:'#075894',ink:'#203650',muted:'#607a94',line:'#cbdbe8',light:'#f5faff',purple:'#8061a3',teal:'#4e9cb4',green:'#42bd4d'};
+ const pages=[];let canvas,ctx,y;
+ function newPage(){
+  canvas=document.createElement('canvas');canvas.width=Math.round(W*scale);canvas.height=Math.round(H*scale);
+  ctx=canvas.getContext('2d',{alpha:false});ctx.scale(scale,scale);ctx.fillStyle='#ffffff';ctx.fillRect(0,0,W,H);
+  pages.push(canvas);y=M;
+ }
+ function font(size=14,bold=false){ctx.font=`${bold?'700':'400'} ${size}px Arial, sans-serif`}
+ function lines(str,maxWidth,size=14,bold=false){
+  font(size,bold);const result=[];for(const para of String(str??'').split(/\r?\n/)){
+   if(!para.trim()){result.push('');continue}
+   let line='';for(const token of para.split(/\s+/)){
+    if(!token)continue;const test=line?line+' '+token:token;
+    if(ctx.measureText(test).width<=maxWidth){line=test;continue}
+    if(line){result.push(line);line=''}
+    if(ctx.measureText(token).width<=maxWidth){line=token;continue}
+    let part='';for(const ch of token){if(ctx.measureText(part+ch).width>maxWidth&&part){result.push(part);part=''}part+=ch}line=part;
+   }result.push(line)
+  }return result.length?result:[''];
+ }
+ function textAt(str,x,top,width,size=14,color=colors.ink,bold=false,leading=1.38){
+  const ls=lines(str,width,size,bold);font(size,bold);ctx.fillStyle=color;ctx.textBaseline='top';
+  ls.forEach((line,i)=>ctx.fillText(line,x,top+i*size*leading));return ls.length*size*leading;
+ }
+ function rounded(x,top,w,h,fill,stroke=colors.line,r=10){
+  ctx.beginPath();ctx.roundRect(x,top,w,h,r);ctx.fillStyle=fill;ctx.fill();
+  if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=1;ctx.stroke()}
+ }
+ function ensure(h){if(y+h>H-58)newPage()}
+ function headline(){
+  ctx.fillStyle=colors.blue;ctx.fillRect(0,0,W,111);
+  textAt('TASK 2 – BẢN THIẾT KẾ GIẢI PHÁP AI',M,22,inner,25,'#fff',true);
+  textAt('Mini Project 2 – AI for Healthy Schools  |  Khối 4',M,60,inner,14,'#e8f5ff');
+  textAt('Thiết kế: Hoangntm2 - VSC Tih Times City',M,82,inner,11,'#e8f5ff');
+  y=130;
+ }
+ function heading(title){ensure(56);ctx.fillStyle=colors.blue;ctx.fillRect(M,y+32,inner,2);textAt(title,M,y,inner,19,colors.blue,true);y+=51}
+ function field(label,value,accent=colors.blue){
+  const text=value&&String(value).trim()?String(value):'(Chưa nhập)';
+  const txt=lines(text,inner-28,14);const h=Math.max(67,43+txt.length*19);
+  ensure(h+10);rounded(M,y,inner,h,colors.light,colors.line,9);
+  textAt(label,M+13,y+10,inner-28,13,accent,true);
+  textAt(text,M+13,y+29,inner-28,14,colors.ink);
+  y+=h+10;
+ }
+ function threeFields(){
+  const data=[['Input',get('ipoInput'),colors.purple,'#f7f3fc'],['Process',get('ipoProcess'),colors.teal,'#f1fbfd'],['Output',get('ipoOutput'),colors.green,'#f2fbf3']];
+  const gap=10,w=(inner-2*gap)/3;
+  const heights=data.map(d=>lines(d[1]||'(Chưa nhập)',w-24,13).length*18+49);
+  const h=Math.max(110,...heights);ensure(h+15);
+  data.forEach((d,i)=>{const x=M+i*(w+gap);rounded(x,y,w,h,d[3],d[2],9);textAt(d[0],x+12,y+12,w-24,16,d[2],true);textAt(d[1]||'(Chưa nhập)',x+12,y+38,w-24,13,colors.ink)});
+  y+=h+15;
+ }
+ function paragraph(str){const h=lines(str,inner-28,13).length*18+22;ensure(h+12);rounded(M,y,inner,h,'#f5faff','#d7e8f5');textAt(str,M+14,y+10,inner-28,13);y+=h+12}
+ function imagePage(){
+  newPage();headline();heading('7. Infographic AI đã tạo');
+  if(!uploadedData){paragraph('Học sinh chưa tải ảnh Infographic.');return}
+  const img=$('previewImage'),maxW=inner-4,maxH=H-y-72;
+  const iw=img.naturalWidth||1000,ih=img.naturalHeight||700;
+  const ratio=Math.min(maxW/iw,maxH/ih),dw=iw*ratio,dh=ih*ratio;
+  rounded(M-3,y-3,inner,dh+8,'#f8fbff',colors.line,7);
+  ctx.drawImage(img,M+(inner-dw)/2,y,dw,dh);
+ }
+ newPage();headline();
+ const dt=get('date');const date=dt?dt.split('-').reverse().join('/'):'';
+ field('Họ và tên',get('student'));field('Lớp',get('className'));field('Ngày làm bài',date);
+ heading('1. Tình huống dự án');
+ paragraph('Trợ lý AI nhắc nhở tư thế ngồi dùng camera để phát hiện tư thế ngồi sai, quá gần màn hình hoặc ngồi hơn 30 phút. AI hướng dẫn học sinh điều chỉnh tư thế và nghỉ ngơi nhưng đôi khi có lời nhắc thiếu lịch sự.');
+ heading('2. Thông tin dự án');
+ field('Vấn đề',get('problem'));field('Người dùng',get('users'));field('Nhu cầu',get('needs'));field('Mục tiêu dự án',get('goal'));
+ heading('3. User Story');field('User Story hoàn chỉnh',get('story'));
+ heading('4. Giải pháp AI');field('AI giúp giải quyết vấn đề',get('solution'));field('Lời nhắc lịch sự, tích cực',get('polite'));
+ heading('5. Mô hình IPO');threeFields();
+ heading('6. Câu lệnh tạo Infographic');
+ field('Tên giải pháp AI',get('solutionName'));
+ // Prompt dài được tách tự động theo trang, không cắt chữ giữa các trang.
+ const pLines=lines($('promptText').value,inner-26,12);
+ let n=0;while(n<pLines.length){
+  if(y>H-90)newPage();
+  const max=Math.max(1,Math.floor((H-65-y-22)/17));
+  const chunk=pLines.slice(n,n+max),h=chunk.length*17+22;
+  rounded(M,y,inner,h,'#f8fbff',colors.line,8);
+  textAt(chunk.join('\n'),M+13,y+10,inner-26,12,colors.ink);
+  y+=h+12;n+=chunk.length;
+ }
+ imagePage();
+ return pages;
+}
+function canvasPagesToPDF(canvases){
+ const enc=new TextEncoder(),parts=[],offsets=[0];let length=0;
+ const append=bytes=>{parts.push(bytes);length+=bytes.length};
+ const txt=str=>enc.encode(str);
+ function addObject(n,prefix,binary=null,suffix=''){
+  offsets[n]=length;append(txt(n+' 0 obj\n'+prefix));
+  if(binary)append(binary);append(txt(suffix+'\nendobj\n'));
+ }
+ append(txt('%PDF-1.4\n'));
+ addObject(1,'<< /Type /Catalog /Pages 2 0 R >>');
+ const kids=canvases.map((_,i)=>3+i*3);
+ addObject(2,`<< /Type /Pages /Kids [${kids.map(n=>n+' 0 R').join(' ')}] /Count ${kids.length} >>`);
+ canvases.forEach((c,i)=>{
+  const page=3+i*3,content=page+1,img=page+2;
+  addObject(page,`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /XObject << /Im${i} ${img} 0 R >> >> /Contents ${content} 0 R >>`);
+  const stream=txt(`q\n595.28 0 0 841.89 0 0 cm\n/Im${i} Do\nQ\n`);
+  addObject(content,`<< /Length ${stream.length} >>\nstream\n`,stream,'\nendstream');
+  const b64=c.toDataURL('image/jpeg',.89).split(',')[1],binary=atob(b64),bytes=new Uint8Array(binary.length);
+  for(let j=0;j<binary.length;j++)bytes[j]=binary.charCodeAt(j);
+  addObject(img,`<< /Type /XObject /Subtype /Image /Width ${c.width} /Height ${c.height} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${bytes.length} >>\nstream\n`,bytes,'\nendstream');
+ });
+ const xref=length,total=3+canvases.length*3;
+ append(txt(`xref\n0 ${total}\n0000000000 65535 f \n`));
+ for(let i=1;i<total;i++)append(txt(String(offsets[i]).padStart(10,'0')+' 00000 n \n'));
+ append(txt(`trailer\n<< /Size ${total} /Root 1 0 R >>\nstartxref\n${xref}\n%%EOF`));
+ return new Blob(parts,{type:'application/pdf'});
+}
+async function downloadPDF(){
+ const labels={student:'Họ và tên',className:'Lớp',problem:'Vấn đề',users:'Người dùng',needs:'Nhu cầu',goal:'Mục tiêu dự án',story:'User Story',solution:'Giải pháp AI',polite:'Lời nhắc tích cực',ipoInput:'Input',ipoProcess:'Process',ipoOutput:'Output'};
+ const missing=Object.keys(labels).filter(id=>!get(id));
+ if(missing.length){feedback('Con cần hoàn thành trước khi tải bài: '+missing.map(id=>labels[id]).join(', ')+'.',true);return}
+ if(!uploadedData){feedback('Con cần tải ảnh Infographic AI đã tạo lên trước khi xuất PDF.',true);return}
+ const btn=$('downloadButton');btn.disabled=true;btn.textContent='Đang tạo PDF...';
+ try{
+  // Give the browser a chance to redraw the button before the PDF work starts.
+  await new Promise(resolve=>requestAnimationFrame(resolve));
+  const pdf=canvasPagesToPDF(makePDFPages());
+  const url=URL.createObjectURL(pdf),a=document.createElement('a');
+  a.href=url;a.download=`${cleanName(get('className'))}_${cleanName(get('student'))}_Task2_AI_Healthy_Schools.pdf`;
+  document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);
+  feedback('Đã tạo file PDF gồm thông tin dự án, User Story, IPO, Prompt và ảnh Infographic.');
+ }catch(e){console.error('PDF export error:',e);feedback('Không thể xuất PDF: '+(e.message||'Lỗi không xác định')+'. Vui lòng thử lại.',true)}
+ finally{btn.disabled=false;btn.textContent='↓ Tải bài làm (.pdf)'}
+}
+$('combineStory').addEventListener('click',combineStory);$('tabButton1').addEventListener('click',()=>showTab(1));$('tabButton2').addEventListener('click',()=>showTab(2));$('nextButton').addEventListener('click',()=>showTab(2));$('backButton').addEventListener('click',()=>showTab(1));
+loadText();if(!get('date'))$('date').value=new Date().toLocaleDateString('en-CA');document.querySelectorAll('textarea').forEach(autoHeight);
+ids.forEach(id=>$(id).addEventListener('input',()=>{saveText();autoHeight($(id));if(['ipoInput','ipoProcess','ipoOutput'].includes(id))syncDiagram();if(id==='solutionName')syncPrompt()}));
+$('promptText').addEventListener('input',()=>{promptEdited=$('promptText').value!==promptBefore;autoHeight($('promptText'));setCopyDefault();saveText()});$('resetPrompt').addEventListener('click',()=>{syncPrompt(true);saveText();feedback('Đã tạo lại Prompt từ thông tin IPO của con.')});$('copyButton').addEventListener('click',copyPrompt);$('geminiButton').addEventListener('click',()=>window.open('https://gemini.google.com/app','_blank','noopener,noreferrer'));
+$('chooseImage').addEventListener('click',e=>{e.stopPropagation();$('imageInput').click()});$('replaceImage').addEventListener('click',()=>$('imageInput').click());$('removeImage').addEventListener('click',removeImage);$('imageInput').addEventListener('change',e=>fileToImage(e.target.files?.[0]));$('dropzone').addEventListener('click',e=>{if(e.target.closest('button'))return;$('imageInput').click()});$('dropzone').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();$('imageInput').click()}});
+const dz=$('dropzone');['dragenter','dragover'].forEach(n=>dz.addEventListener(n,e=>{e.preventDefault();dz.classList.add('over')}));['dragleave','drop'].forEach(n=>dz.addEventListener(n,e=>{e.preventDefault();dz.classList.remove('over')}));dz.addEventListener('drop',e=>fileToImage([...e.dataTransfer.files].find(f=>f.type.startsWith('image/'))));document.addEventListener('paste',e=>{if(!$('tab2').classList.contains('active'))return;const f=Array.from(e.clipboardData?.items||[]).find(item=>item.type.startsWith('image/'));if(f){e.preventDefault();fileToImage(f.getAsFile())}});$('downloadButton').addEventListener('click',downloadPDF);syncDiagram();
+})();
+</script>
+</body></html>
